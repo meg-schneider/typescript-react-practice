@@ -5,6 +5,13 @@ import { Input } from './Input'
 
 export const AddTodo = () => {
   const [input, setInput] = useState<string>('')
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus()
+    }
+  }, [])
 
   const handleSubmission = (e: React.FormEvent) => {
     e.preventDefault()
